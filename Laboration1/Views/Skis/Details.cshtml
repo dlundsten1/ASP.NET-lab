@@ -1,0 +1,51 @@
+﻿@model Laboration1.Models.Skis
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Skis</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sk_Name)
+        </dd>
+
+        <dt>
+           Length
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sk_Length)
+        </dd>
+
+        <dt>
+           Width
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sk_Width)
+        </dd>
+
+        <dt>
+           Brand
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand.BrandName)
+        </dd>
+
+      
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

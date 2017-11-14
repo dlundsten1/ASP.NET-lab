@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Laboration1.Models.Brand>
+
+@{
+    ViewBag.Title = "Brands";
+}
+
+<h2>Brands</h2>
+
+<p>
+    @Html.ActionLink("Add new", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrandName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) 
+           
+        </td>
+    </tr>
+}
+
+</table>

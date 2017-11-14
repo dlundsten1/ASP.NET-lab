@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Laboration1.Models.Skis>
+    
+
+@{
+    ViewBag.Title = "Skicollection";
+}
+
+
+
+<h2>
+   
+    @Html.ActionLink("Add new skis", "Create")
+</h2>
+
+<h5>Search for skis by name:</h5>
+@using (Html.BeginForm()) { 
+<p>
+    @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+  
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.SkiNameSortParm, currentFilter = ViewBag.CurrentFilter })
+         
+        </th>
+        <th>
+          Length
+        </th>
+        <th>
+           Width
+        </th>
+        <th>
+           Brand
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sk_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sk_Length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sk_Width)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand.BrandName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
